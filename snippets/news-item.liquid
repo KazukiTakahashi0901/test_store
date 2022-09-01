@@ -1,0 +1,11 @@
+<article>
+      <a class="news__blog__item__link" href="{{ article.url }}">
+       <p class="news__blog__date">{{ article.published_at | date: '%Y.%m.%d' }}</p>
+        {% if current_tags %}
+          <p class="news__blog__tag">{{current_tags}}</p>
+        {% else %}
+          <p class="news__blog__tag">{{article.tags.first}}</p>
+        {% endif %}
+        <h3 class="news__blog__title">{{article.title}}</h3>
+      </a>
+</article>

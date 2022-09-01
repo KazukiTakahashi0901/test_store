@@ -1,0 +1,68 @@
+<div class="Container shopping-guide">
+  <header class="PageHeader">
+    <div class="SectionHeader SectionHeader--center">
+      <h1 class="SectionHeader__Heading Heading u-h1">
+        ショッピングガイド
+      </h1>
+    </div>
+  </header>
+  <div class="guide__wrapper">
+    <div class="guide__nav">
+      <p><a href="#配送・送料について">ー 配送・送料について</a></p>
+      <p><a href="#支払い方法について">ー 支払い方法について</a></p>
+    </div>
+    <div class="guide__content">
+      <div class="guide__content__container">
+        <h2 id="配送・送料について" class="guide__content__title">配送・送料について</h2>
+        <h4 class="guide__content__subtitle">佐川急便</h4>
+          <p class="guide__content__text">送料一律（税込）660円で発送いたします。ご購入合計（税込）5,500円以上の場合は送料無料で配達いたします。<br>
+          ご注文を受けてから3営業日以内に発送いたします。</p>
+          <p class="guide__content__text">※予約商品の配送に関して<br>
+          予約商品はお届け希望日を指定できません。<br>
+          商品名に記載している配送日以降の商品発送となります。</p>
+          <!--<p class="guide__content__text">当社指定の配送日以降で、お届けする日時をご希望の場合は、<br>
+          お手数ですが、備考欄にてご希望の日時をご記入ください。<br>
+          【午前中（8時～12時）/12時～14時 /14時～16時 /16時～18時 /18時～20時 /19時～21時】 </p>-->
+      </div>
+      <div class="guide__content__container">
+        <h2 id="支払い方法について" class="guide__content__title">支払い方法について</h2>
+        <div class="guide__content__item">
+          <h4 class="guide__content__subtitle">クレジットカード</h4>
+            <div class="guide__content__img__container">
+              <img class="guide__content__img" src="{{ 'visa.svg' | asset_url }}">
+              <img class="guide__content__img" src="{{ 'mastercard.svg' | asset_url }}">
+              <img class="guide__content__img" src="{{ 'jcb.svg' | asset_url }}">
+              <img class="guide__content__img" src="{{ 'amex.svg' | asset_url }}">
+              <img class="guide__content__img" src="{{ 'shopi-pay.svg' | asset_url }}">
+              <img class="guide__content__img" src="{{ 'apple-pay.svg' | asset_url }}">
+              <img class="guide__content__img" src="{{ 'google-pay.svg' | asset_url }}">
+            </div>
+        </div>
+        <div class="guide__content__item">
+          <h4 class="guide__content__subtitle">Amazon Pay</h4>
+            <div class="guide__content__img__container">
+              <img class="guide__content__img amazon" src="{{ 'amazon-pay.png' | asset_img_url: '80x' }}">
+            </div>
+            <p class="guide__content__text">Amazon.co.jpのアカウントに登録されている住所情報とクレジットカード情報を使用して決済できるサービスです。<br>
+              Amazon Payの詳しい使用方法は<a href="https://pay.amazon.co.jp/using-amazon-pay/reward2" target="_blank">>>こちら</a>から。
+            </p>          
+        </div>
+       <div class="guide__content__item">
+          <h4 class="guide__content__subtitle">あと払い（ペイディ）</h4>
+            <div class="guide__content__img__container">
+              <img class="guide__content__img amazon" src="{{ 'PAIDY_Logo color.png' | asset_img_url: '80x' }}">
+            </div>          
+            <p class="guide__content__text">メールアドレスと携帯番号で決済できるサービスです。支払いは翌月でOK。<br>
+              あと払い（ペイディ）の詳しい使用方法は<a href="https://faq.paidy.com/" target="_blank">>>こちら</a>から。
+            </p>
+        </div>
+        <!--<div class="guide__content__item">
+          <h4 class="guide__content__subtitle">代金引換(現金)</h4>
+            <p class="guide__content__text">代引金額 代引手数料（税込）<br>
+            1万円以下 330円<br>
+            3万円以下 440円<br>
+            10万円以下 660円<br>
+            30万円以下 1,100円 </p>
+        </div>-->
+    </div>
+  </div>

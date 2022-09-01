@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-shopping-guide",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,52 @@
+@charset "UTF-8";
+.Collection .SectionHeader.SectionHeader--center {
+  z-index: 1;
+}
+.Collection .SectionHeader.SectionHeader--center .SectionHeader__Heading {
+  font-size: 36px;
+  letter-spacing: 1.45px;
+  font-weight: bold;
+}
+
+.CollectionMain .ProductList::before {
+  height: 230px;
+  margin-top: -230px;
+  content: "";
+  display: block;
+}
+
+.ProductItem__LabelList {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin-top: 12px;
+}
+.ProductItem__Label {
+  margin: 0 6px 0 0;
+  padding: 0;
+  color: #f83e3e;
+  font-size: 16px;
+}
+.ProductItem__Info {
+  margin-top: 12px;
+}
+.ProductItem__Price::after {
+  content: "(税込)";
+}
+.ProductItem__Title {
+  font-size: 16px;
+  color: #000;
+  font-weight: 500;
+}
+
+.Rte {
+  font-weight: 300;
+  line-height: 1.875em;
+  font-size: 16px;
+  color: #000;
+  word-break: break-word;
+  /* Prevent long words to go outside the container */
+  /* Simple, minimum clearfix added to every RTE text to avoid issue with float */
+}
+
+/*# sourceMappingURL=collection.css.map */

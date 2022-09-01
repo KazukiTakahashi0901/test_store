@@ -1,0 +1,262 @@
+<footer id="section-{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="footer" class="Footer {% if section.blocks.size <= 2 %}Footer--center{% endif %}" role="contentinfo">
+  <div class="Container">
+    {%- if section.blocks.size > 0 -%}
+      <div class="footer__navigation">
+        <div class="footer__items">
+          <div clas="footer__logo">
+            <img src={{ 'bigwing-logo.svg' | asset_url }}>
+          </div>
+          <div class="Footer__Inner">
+          {%- for block in section.blocks -%}
+            <div class="footer__item" {{ block.shopify_attributes }}>
+              {%- assign linklist = linklists[block.settings.menu] -%}
+              {%- if linklist != empty -%}
+                <h2 class="Footer__Title">{{ linklist.title | escape }}</h2>
+                <ul class="Linklist">
+                  {%- for link in linklist.links -%}
+                    <li class="Linklist__Item">
+                      <a href="{{ link.url }}" class="Link Link--primary">{{ link.title | escape }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+        </div>
+        <div class="footer__menu">
+          <div class="footer__menu__item">
+            <a class="footer__link Link" href="https://https-bigwing.myshopify.com/blogs/%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9">ニュース</a>
+          </div>
+          <div class="footer__menu__item">
+            <a class="footer__link Link" href="https://https-bigwing.myshopify.com/pages/contact">お問い合わせ</a></div>
+          {% comment %} <div class="footer__menu__item">特集</div> {% endcomment %}
+        </div>
+      </div>
+
+      <div class="footer__guide">
+        <div class="footer__guide__menu">
+          <a class="footer__link Link" href="https://https-bigwing.myshopify.com/pages/%E3%81%94%E5%88%A9%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89">ショッピングガイド</a>
+        </div>
+        <div class="footer__guide__menu">
+          <a class="footer__link Link" href="https://https-bigwing.myshopify.com/pages/about">特定商取引法に基づく表記</a>
+        </div>
+        <div class="footer__guide__menu">
+          <a class="footer__link Link" href="https://https-bigwing.myshopify.com/policies/privacy-policy">プライバシーポリシー</a>
+        </div>
+        <div class="footer__guide__menu">
+          <a class="footer__link Link" href="https://www.instagram.com/bigwing1995/">公式Instagram</a>
+        </div>
+      </div>
+      <div class="footer__copyright">copyright © 2022 BIGWING inc.</div>
+    {%- endif -%}
+
+    <div class="Footer__Aside">
+      {%- if section.settings.show_country_selector and localization.available_countries.size > 1 -%}
+        {%- assign country_selector = true -%}
+      {%- endif -%}
+
+      {%- if section.settings.show_locale_selector and localization.available_languages.size > 1 -%}
+        {%- assign locale_selector = true -%}
+      {%- endif -%}
+
+      {%- if locale_selector or country_selector -%}
+        <div class="Footer__Localization">
+          {%- form 'localization', id: 'localization_form_footer', class: 'Footer__LocalizationForm' -%}
+            {%- if country_selector -%}
+              <div class="Footer__LocalizationItem">
+                <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+                <span class="u-visually-hidden">{{ 'footer.general.country' | t }}</span>
+
+                <button aria-controls="footer-currency-popover" aria-expanded="false" aria-haspopup="true" class="SelectButton Link Link--primary u-h8" type="button">
+                  {{- localization.country.name }}
+                  ({{ localization.country.currency.iso_code }}
+                  {% if localization.country.currency.symbol %}
+                    {{ localization.country.currency.symbol }}
+                  {%- endif -%})
+                  {%- render 'icon', icon: 'select-arrow' -%}
+                </button>
+
+                <div aria-hidden="true" class="Popover Popover--small Popover--noWrap" id="footer-currency-popover">
+                  <header class="Popover__Header">
+                    <button class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover" type="button">{% render 'icon' with 'close' %}</button>
+                    <span class="Popover__Title Heading u-h4">{{ 'footer.general.country' | t }}</span>
+                  </header>
+
+                  <div class="Popover__Content">
+                    <div class="Popover__ValueList Popover__ValueList--center" data-scrollable>
+                      {%- for country in localization.available_countries -%}
+                        <button type="submit" name="country_code" class="Popover__Value {% if country.iso_code == localization.country.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6" value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %} aria-current="true" {% endif %}>
+                          {{- country.name }}
+                          ({{ country.currency.iso_code }}
+                          {% if country.currency.symbol %}
+                            {{ country.currency.symbol }}
+                          {%- endif -%})
+                        </button>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if locale_selector -%}
+              <div class="Footer__LocalizationItem">
+                <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+                <span class="u-visually-hidden">{{ 'footer.general.locale' | t }}</span>
+
+                <button aria-controls="footer-locale-popover" aria-expanded="false" aria-haspopup="true" class="SelectButton Link Link--primary u-h8" type="button">
+                  {{- localization.language.endonym_name -}}
+                  {%- render 'icon', icon: 'select-arrow' -%}
+                </button>
+
+                <div aria-hidden="true" class="Popover Popover--small Popover--noWrap" id="footer-locale-popover">
+                  <header class="Popover__Header">
+                    <button class="Popover__Close Icon-Wrapper--clickable" data-action="close-popover" type="button">{% render 'icon' with 'close' %}</button>
+                    <span class="Popover__Title Heading u-h4">{{ 'footer.general.locale' | t }}</span>
+                  </header>
+
+                  <div class="Popover__Content">
+                    <div class="Popover__ValueList Popover__ValueList--center" data-scrollable>
+                      {%- for language in localization.available_languages -%}
+                        <button type="submit" name="locale_code" class="Popover__Value {% if language.iso_code == localization.language.iso_code %}is-selected{% endif %} Heading Link Link--primary u-h6" value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %} aria-current="true" {% endif %}>
+                          {{- language.endonym_name | capitalize -}}
+                        </button>
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{%- if settings.footer_background == settings.background -%}
+  <style>
+    .Footer {
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "shopify-section--footer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_payment_methods",
+      "label": "Show payment methods",
+      "info": "Payment method icons are automatically displayed based on your Shopify payment methods.",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Country/region selector",
+      "info": "To add a country/region, go to your [currency settings.](/admin/settings/payments)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country_selector",
+      "label": "Show country/region selector",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Language selector",
+      "info": "To add a language, go to your [language settings.](/admin/settings/languages)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_locale_selector",
+      "label": "Show language selector",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text / social media",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "About the shop"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text",
+          "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.</p>"
+                  },
+                  {
+                    "type": "checkbox",
+                    "id": "show_social_media",
+                    "label": "Show social media",
+                    "info": "Make sure to have properly configured your social media in the theme settings.",
+                    "default": false
+                  }
+                ]
+              },
+              {
+                "type": "links",
+                "name": "Links",
+                "settings": [
+                  {
+                    "type": "link_list",
+                    "id": "menu",
+                    "label": "Menu",
+                    "info": "This menu won't show dropdown items."
+                  }
+                ]
+              },
+              {
+                "type": "newsletter",
+                "name": "Newsletter",
+                "limit": 1,
+                "settings": [
+                  {
+                    "type": "paragraph",
+                    "content": "Customers who subscribe will have their email address added to the \"accepts marketing\" [customer list](/admin/customers?query=&accepts_marketing=1)."
+                  },
+                  {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Heading",
+                    "default": "Newsletter"
+                  },
+                  {
+                    "type": "richtext",
+                    "id": "content",
+                    "label": "Text",
+                    "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+                  }
+                ]
+              }
+            ],
+            "default": {
+              "blocks": [
+                {
+                  "type": "text",
+                  "settings": {}
+                },
+                {
+                  "type": "links",
+                  "settings": {
+                    "menu": "footer"
+                  }
+                },
+                {
+                  "type": "newsletter",
+                  "settings": {}
+                }
+              ]
+            }
+          }
+{% endschema %}

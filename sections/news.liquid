@@ -1,0 +1,32 @@
+{%- assign blog = blogs[section.settings.news_list] -%}
+
+<div class="news__wrap">
+  <h2 class="news__title">
+    {{ section.settings.news_title }}
+  </h2>
+
+  <ul class="news__blog__content">
+    {% for article in blog.articles limit: section.settings.post_limit %}
+    <li class="news__blog__item">
+      <a class="news__blog__item__link" href="{{ article.url }}">
+        <p class="news__blog__date">
+          {{ article.published_at | date: "%Y.%m.%d" }}
+        </p>
+        <p class="news__blog__tag">{{ article.tags.first }}</p>
+        <h3 class="news__blog__title">{{ article.title }}</h3>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="news__blog__more">
+    <a class="Button Button--primary" href="{{ blog.url }}">一覧を見る</a>
+  </div>
+</div>
+
+{% schema %} { "name": "NEWS", "settings": [ { "type": "text", "id":
+"news_title", "default": "NEWS", "label": "題名" }, { "type": "range", "id":
+"post_limit", "default": 4, "min": 1, "max": 6, "step": 1, "label":
+"表示数を選択" }, { "type": "blog", "id": "news_list", "label":
+"表示するブログ記事を選択" } ], "presets": [ { "name": "NEWS" } ] } {% endschema
+%}

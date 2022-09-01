@@ -1,0 +1,86 @@
+{%- assign feature_image_first = section.settings.feature_image_first -%}
+{%- assign feature_image_second = section.settings.feature_image_second -%}
+{%- assign feature_image_third = section.settings.feature_image_third -%}
+{%- assign feature_page_first = section.settings.feature_page_first -%}
+{%- assign feature_page_second = section.settings.feature_page_second -%}
+{%- assign feature_page_third = section.settings.feature_page_third -%}
+
+<div class="feature__wrap">
+
+  <h2 class="feature__title">
+    {{ section.settings.feature_title }}
+  </h2>
+
+  <ul  class="feature__content">
+    <li class="feature__item">
+      <a class="feature__link" href="{{ feature_page_first.url }}">
+        <div class="feature__img" style="background-image: url({{ feature_image_first | image_url }})"></div>
+        <p class="feature__date">{{ feature_page_first.published_at | date: '%Y.%m.%d' }}</p>
+        <h3 class="feature__article__title">{{feature_page_first.title}}</h3>
+    </li>
+    <li class="feature__item">
+      <a class="feature__link" href="{{ feature_page_second.url }}">
+        <div class="feature__img" style="background-image: url({{ feature_image_second | image_url }})"></div>
+        <p class="feature__date">{{ feature_page_second.published_at | date: '%Y.%m.%d' }}</p>
+        <h3 class="feature__article__title">{{feature_page_second.title}}</h3>
+      </a>
+    </li>
+    <li class="feature__item">
+      <a class="feature__link" href="{{ feature_page_third.url }}">
+        <div class="feature__img" style="background-image: url({{ feature_image_third | image_url }})"></div>
+        <p class="feature__date">{{ feature_page_third.published_at | date: '%Y.%m.%d' }}</p>
+        <h3 class="feature__article__title">{{feature_page_third.title}}</h3>
+      </a>
+    </li>
+  </ul>
+
+</div>
+
+{% schema %}
+{
+  "name": "FEATURE",
+  "settings": [
+    {
+      "type": "text",
+      "id": "feature_title",
+      "default": "FEATURE", 
+      "label": "題名"
+    },
+    {
+      "type": "page",
+      "id": "feature_page_first",
+      "label": "1番目に表示するページ"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_image_first",
+      "label": "記事１のイメージ画像を選択"
+    },
+    {
+      "type": "page",
+      "id": "feature_page_second",
+      "label": "2番目に表示するページ"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_image_second",
+      "label": "記事2のイメージ画像を選択"
+    },
+    {
+      "type": "page",
+      "id": "feature_page_third",
+      "label": "3番目に表示するページ"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_image_third",
+      "label": "記事3のイメージ画像を選択"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FEATURE"
+    }
+  ]
+}
+{% endschema %}

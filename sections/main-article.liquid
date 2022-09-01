@@ -1,0 +1,200 @@
+{%- assign share_url = shop.url | append: article.url -%}
+{%- assign twitter_text = article.title -%}
+{%- assign pinterest_description = article.description | strip_html | truncatewords: 15 | url_param_escape -%}
+{%- assign pinterest_image = article.image | img_url: '750x' | prepend: 'https:' -%}
+
+<article class="Article" data-section-id="{{ section.id }}" data-section-type="article">
+  <div class="newsDetail__wrapper">
+    <div class="newsDetail__header">
+      <span class="newsDetail__date">{{ article.published_at | date: format: 'month_day_year' }}</span>
+      {% for tag in article.tags %}
+        <span class="newsDetail__tags">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    
+    <div class="newsDetail__title__container">
+      <h1 class="newsDetail__title">{{ article.title }}</h1>
+    </div>
+
+      <div class="Article__Body Rte">
+        {{ article.content }}
+      </div>
+
+      {%- if article_footer != blank -%}
+        <footer class="Article__Footer">
+          {{ article_footer }}
+        </footer>
+      {%- endif -%}
+
+    {%- if blog.comments_enabled? -%}
+      {%- if article.comments_count > 0 -%}
+        <div class="Article__Comments">
+          <span class="Anchor" id="comments"></span>
+
+          <h2 class="Heading u-h1">{{ 'blog.article.comments_count' | t: count: article.comments_count }}</h2>
+
+          <div class="Article__CommentList">
+            {%- paginate article.comments by 25 -%}
+              {%- for comment in article.comments -%}
+                <div class="ArticleComment">
+                  <div class="ArticleComment__Body Rte">
+                    {{ comment.content }}
+                  </div>
+
+                  <div class="ArticleComment__Meta Heading Text--subdued u-h8">
+                    <span class="ArticleComment__Author">{{ comment.author }}</span>
+                    <span class="ArticleComment__Date">{{ comment.created_at | date: format: 'month_day_year' }}</span>
+                  </div>
+                </div>
+              {%- endfor -%}
+
+              {% render 'pagination', paginate: paginate, hash: '#comments' %}
+            {%- endpaginate -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      <div class="Article__CommentFormWrapper">
+        {% if article.comments_count == 0 %}
+          <span class="Anchor" id="comments"></span>
+        {%- endif -%}
+
+        <span class="Anchor" id="comment_form"></span>
+
+        <h2 class="Heading u-h1">{{ 'blog.comments.form_title' | t }}</h2>
+
+        {%- form 'new_comment', article, class: 'Article__CommentForm Form', id: '' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="Form__Alert Alert Alert--success">
+              {%- if blog.moderated? -%}
+                {{- 'blog.comments.success_moderated' | t -}}
+              {%- else -%}
+                {{- 'blog.comments.success' | t -}}
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+
+          {%- if form.errors -%}
+            <div class="Form__Alert Alert Alert--error">
+              <ul class="Alert__ErrorList">
+                {%- for field in form.errors -%}
+                  {%- if field == 'form' -%}
+                    <li class="Alert__ErrorItem">{{ form.errors.messages[field] }}</li>
+                  {%- else -%}
+                    <li class="Alert__ErrorItem"><strong>{{ form.errors.translated_fields[field] }}</strong> {{ form.errors.messages[field] }}</li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            </div>
+          {%- endif -%}
+
+          <div class="Form__Group">
+            <div class="Form__Item">
+              <input type="text" class="Form__Input" name="comment[author]" placeholder="{{ 'blog.comments.name_placeholder' | t }}" aria-label="{{ 'blog.comments.name_placeholder' | t }}" value="{{ form.author | escape | default: customer.name }}" required="required">
+              <label class="Form__FloatingLabel">{{ 'blog.comments.name_placeholder' | t }}</label>
+            </div>
+
+            <div class="Form__Item">
+              <input type="email" class="Form__Input" name="comment[email]" placeholder="{{ 'blog.comments.email_placeholder' | t }}" aria-label="{{ 'blog.comments.email_placeholder' | t }}" value="{{ form.email | escape | default: customer.email }}" required="required">
+              <label class="Form__FloatingLabel">{{ 'blog.comments.email_placeholder' | t }}</label>
+            </div>
+          </div>
+
+          <div class="Form__Item">
+            <textarea name="comment[body]" rows="6" class="Form__Textarea" placeholder="{{ 'blog.comments.comment_placeholder' | t }}" aria-label="{{ 'blog.comments.comment_placeholder' | t }}" required="required">
+              {{- form.body -}}
+            </textarea>
+
+            <label class="Form__FloatingLabel">{{ 'blog.comments.comment_placeholder' | t }}</label>
+          </div>
+
+          {%- if blog.moderated? -%}
+            <p class="Form__Hint">{{ 'blog.comments.approval_notice' | t }}</p>
+          {%- endif -%}
+
+          <button type="submit" class="Form__Submit Button Button--primary">{{ 'blog.comments.submit' | t }}</button>
+        {%- endform -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_prev_next and blog.next_article or blog.previous_article -%}
+    <aside class="newsDetail__nav">
+      
+      <div class="newsDetail__nav__arrow">
+        <img src="{{ 'blog-previous.svg' | asset_url }}">
+      </div>
+
+      <div class="newsDetail__nav__item newsDetail__nav__item__first">
+      {% if blog.previous_article %}      
+      {%- render 'article-item', article: blog.previous_article -%}
+      {%- elsif blog.articles_count > 3 -%}
+      {%- render 'article-item', article: blog.articles.first -%}
+      {%- endif -%}
+      </div>
+
+      <div class="newsDetail__nav__list">
+        <a href="{{ blog.url }}">
+        <img src="{{ 'blog-list.svg' | asset_url }}">
+        </a>
+      </div>
+      
+      <div class="newsDetail__nav__item">
+      {% if blog.next_article %}
+      {%- render 'article-item', article: blog.next_article -%}
+      {%- elsif blog.articles_count > 3 -%}
+      {%- render 'article-item', article: blog.articles.last -%}
+      {%- endif -%}
+      </div>
+
+      <div class="newsDetail__nav__arrow">
+        <img src="{{ 'blog-next.svg' | asset_url }}">
+      </div>
+    </aside>
+    {%- endif -%}
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Blog post page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_article_image",
+      "label": "Show article image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show article date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show article category",
+      "info": "The first article's tag is used as the main category.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show share buttons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_prev_next",
+      "label": "Show prev/next articles",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,114 @@
+.newsDetail__wrapper {
+  max-width: 880px;
+  margin: 79px auto 200px;
+  padding: 0 15px;
+}
+@media screen and (max-width: 640px) {
+  .newsDetail__wrapper {
+    margin: 67px auto 146px;
+  }
+}
+
+.newsDetail__header {
+  margin-bottom: 48px;
+}
+
+.newsDetail__date {
+  font-size: 16px;
+  color: #7c7c7c;
+}
+
+.newsDetail__tags {
+  margin-left: 16px;
+  font-size: 14px;
+  padding: 5px 26px;
+  color: black;
+  background-color: #f2f2f2;
+}
+
+.newsDetail__title__container {
+  margin-bottom: 73px;
+}
+@media screen and (max-width: 640px) {
+  .newsDetail__title__container {
+    margin-bottom: 40px;
+  }
+}
+
+.newsDetail__title {
+  font-size: 28px;
+  font-weight: 500;
+  color: black;
+}
+@media screen and (max-width: 640px) {
+  .newsDetail__title {
+    font-size: 22px;
+  }
+}
+
+.newsDetail__articleItem {
+  font-size: 14px;
+  color: black;
+}
+
+.newsDetail__nav {
+  margin-top: 80px;
+  display: flex;
+  border-top: solid 1px #e0e0e0;
+  border-bottom: solid 1px #e0e0e0;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 640px) {
+  .newsDetail__nav {
+    flex-wrap: wrap;
+  }
+}
+.newsDetail__nav__item {
+  text-align: center;
+  width: calc(50% - 66px);
+  padding: 0 15px;
+}
+@media screen and (max-width: 640px) {
+  .newsDetail__nav__item {
+    width: calc(50% - 6px);
+    padding: 25px 10px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .newsDetail__nav__item__first {
+    border-right: 1px solid #e0e0e0;
+  }
+}
+.newsDetail__nav__list {
+  padding: 50px 50px;
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  max-width: 122px;
+}
+@media screen and (max-width: 640px) {
+  .newsDetail__nav__list {
+    order: 4;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
+    max-width: none;
+    padding: 25px 0;
+    text-align: center;
+  }
+}
+.newsDetail__nav__arrow {
+  width: 6px;
+  text-align: center;
+}
+.newsDetail__nav__arrow img {
+  vertical-align: middle;
+}
+
+.Article__Body.Rte h2 {
+  font-weight: 500;
+  color: #000;
+  margin-top: 60px;
+}
+
+/*# sourceMappingURL=news-detail.css.map */

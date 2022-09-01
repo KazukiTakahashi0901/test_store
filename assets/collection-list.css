@@ -1,0 +1,12 @@
+@media screen and (min-width: 641px) {
+  .CollectionListSection .CollectionList--spaced {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .CollectionListSection .SectionHeader:not(:only-child) {
+    margin-bottom: 20px;
+  }
+}
+
+/*# sourceMappingURL=collection-list.css.map */

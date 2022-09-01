@@ -1,0 +1,34 @@
+@media screen and (max-width: 640px) {
+  .Collapsible__Plus {
+    width: 20px;
+    height: 15px;
+  }
+  .Collapsible__Plus::before {
+    width: 15px;
+    background: #326738;
+  }
+  .Collapsible__Plus::after {
+    height: 15px;
+    background: #326738;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .SidebarMenu .Text--subdued {
+    color: #000;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .SidebarMenu .Heading {
+    color: #000;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .Linklist__Item {
+    font-size: 13px !important;
+  }
+}
+
+/*# sourceMappingURL=collasible.css.map */

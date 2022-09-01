@@ -1,0 +1,11 @@
+.shopify-section--bordered > .Section--spacingNormal {
+  font-size: 50px;
+}
+
+@media screen and (max-width: 640px) {
+  .shopify-section--bordered > .Section--spacingNormal {
+    padding: 50px 0;
+  }
+}
+
+/*# sourceMappingURL=shopify-section.css.map */

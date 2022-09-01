@@ -1,0 +1,94 @@
+@media screen and (max-width: 1139px) {
+  .Header__Icon--account {
+    display: none;
+  }
+}
+@media screen and (max-width: 640px) {
+  .Header__Icon .Icon--search {
+    width: 22px;
+    height: 22px;
+    top: 0px;
+  }
+  .Header__Icon .Icon--cart {
+    width: 24px;
+    height: 25px;
+  }
+  .Header__Icon .Icon--nav {
+    width: 32px;
+    height: 21px;
+  }
+}
+
+.header__nav {
+  justify-content: flex-end;
+}
+@media screen and (max-width: 1139px) {
+  .header__nav {
+    display: none;
+  }
+}
+
+.HorizontalList.HorizontalList--spacingExtraLoose.hasBorder::after {
+  content: "";
+  height: 20px;
+  width: 1px;
+  background-color: currentColor;
+  display: inline-block;
+  top: 36px;
+  position: absolute;
+}
+
+.MegaMenu__Wrapper {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 50px 0 20px 0;
+}
+.MegaMenu__Inner {
+  justify-content: flex-end;
+  margin: 0;
+  width: 100%;
+  max-width: 955px;
+}
+.MegaMenu__Item.hasPushImage {
+  display: flex;
+  width: 100%;
+  column-gap: 25px;
+  margin: 0;
+  justify-content: flex-end;
+}
+.MegaMenu__Push {
+  max-width: 220px;
+}
+.MegaMenu__PushHeading {
+  font-size: 20px !important;
+  color: #272727 !important;
+}
+.MegaMenu__Heading {
+  font-size: 20px;
+  color: #326738;
+  font-weight: bold;
+}
+.MegaMenu.MegaMenu--grid .MegaMenu__Inner {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.MegaMenu.MegaMenu--grid .MegaMenu__Item--fit .MegaMenu__Title.Heading {
+  font-size: 16px;
+  color: #272727;
+}
+
+.HorizontalList__Item.is-expanded .Heading {
+  color: #326738;
+  cursor: pointer;
+}
+
+.HorizontalList--spacingExtraLoose .HorizontalList__Item {
+  margin-right: 21px;
+  margin-left: 21px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=header.css.map */
