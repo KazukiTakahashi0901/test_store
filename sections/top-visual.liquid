@@ -1,0 +1,19 @@
+<div class="top-container">
+    <div class="top-image" style="background-image: url({{ section.setting.image_pc | 'original' }})">
+    </div>
+    <div class="top-image-sp">
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"トップ",
+    "setting":[
+    {
+        "type": "image_picker",
+        "id": "image_pc",
+        "label": "画像を選択"
+    },
+    ]
+}
+{% endschema %}
