@@ -1,149 +1,144 @@
-<div id="section-{{ section.id }}" class="Section" data-section-id="{{ section.id }}" data-section-type="article-list">
-  {%- if blog.articles_count == 0 -%}
-    <div class="EmptyState">
-      <div class="Container">
-        <h1 class="EmptyState__Title Heading u-h5">{{ 'blog.general.no_articles' | t: blog_title: blog.title }}</h1>
-        <a href="{{ routes.root_url }}" class="EmptyState__Action Button Button--primary">{{ 'blog.general.empty_button' | t }}</a>
-      </div>
-    </div>
-  {%- else -%}
-    <div class="Blog newsList__wrapper">
-      <div class="Container">
-        <header class="PageHeader--news">
-          <div class="SectionHeader SectionHeader--center">
-            <h1 class="SectionHeader__Heading Heading u-h1 newsList__heading">
-              {{- blog.title -}}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
-              {%- if section.settings.show_rss -%}
-                <a href="{{ blog.url }}.atom" target="_blank" class="Blog__RssLink Link Link--secondary">{% render 'icon' with 'rss' %}</a>
-              {%- endif -%}
-            </h1>
-
-            {%- if section.settings.show_tags and blog.all_tags.size > 0 -%}
-              <ul class="Blog__TagList HorizontalList HorizontalList--spacingExtraLoose newsList__tag__list">
-                <div class="newsList__tags__container__event">
-                  <li class="HorizontalList__Item">
-                    <a href="/blogs/{{ blog.handle }}" class="Link Link--primary newsList__tag {% if current_tags == blank %}newsList__active{% endif %}">{{ 'blog.general.all_tag' | t }}</a>
-                  </li>
-                  {% for tag in blog.all_tags %}
-                    {% if tag == 'News' %}
-                      <li class="HorizontalList__Item">
-                        <a href="/blogs/{{ blog.handle }}/tagged/{{ tag | handle }}" class="Link Link--primary newsList__tag  {% if current_tags contains tag %}newsList__active{% endif %}">{{ tag }}</a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                  {% for tag in blog.all_tags %}
-                    {% if tag == 'Event' %}
-                      <li class="HorizontalList__Item">
-                        <a href="/blogs/{{ blog.handle }}/tagged/{{ tag | handle }}" class="Link Link--primary newsList__tag  {% if current_tags contains tag %}newsList__active{% endif %}">{{ tag }}</a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                  {% for tag in blog.all_tags %}
-                    {% if tag == 'Column' %}
-                      <li class="HorizontalList__Item">
-                        <a href="/blogs/{{ blog.handle }}/tagged/{{ tag | handle }}" class="Link Link--primary newsList__tag  {% if current_tags contains tag %}newsList__active{% endif %}">{{ tag }}</a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-                <div class="newsList__tags__container__brand"></div>
-                {% for tag in blog.all_tags %}
-                  {% if tag != 'News' %}
-                    {% if tag != 'Event' %}
-                      {% if tag != 'Column' %}
-                    <li class="HorizontalList__Item">
-                      <a href="/blogs/{{ blog.handle }}/tagged/{{ tag | handle }}" class="Link Link--primary newsList__tag  {% if current_tags contains tag %}newsList__active{% endif %}">{{ tag }}</a>
-                    </li>
-                      {% endif %}
-                    {% endif %}
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            {%- endif -%}
-          </div>
-        </header>
-
-        {%- if section.settings.show_featured_article and current_tags == blank -%}
-          {%- assign articles_per_page = 10 -%}
-        {%- else -%}
-          {%- assign articles_per_page = 10 -%}
-        {%- endif -%}
-
-        {%- paginate blog.articles by articles_per_page -%}
-          {% assign is_first_article_featured = false %}
-
-          {%- if section.settings.show_featured_article and current_tags == blank and blog.articles.first.image -%}
-            {%- assign is_first_article_featured = true -%}
-          {%- endif -%}
-
-            <ul class="newsList__blog__content ">
-              {%- for article in blog.articles -%}
-                 <li class="news__blog__item">
-                  {%- render 'news-item', article: article -%}
-                </li>
-              {%- endfor -%}
-            </ul>
-
-          {%- render 'pagination', paginate: paginate -%}
-        {%- endpaginate -%}
-      </div>
-    </div>
-  {%- endif -%}
-</div>
-
-<style>
-  #section-{{ section.id }} .ImageHero,
-  #section-{{ section.id }} .ImageHero .Heading {
-    color: #ffffff;
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
-  #section-{{ section.id }} .ImageHero .Button {
-    color: #1c1c1c;
-    border-color: #ffffff;
-  }
-
-  #section-{{ section.id }} .ImageHero .Button::before {
-    background-color: #ffffff;
-  }
-
-  {%- if settings.show_button_transition -%}
-    @media (-moz-touch-enabled: 0), (hover: hover) {
-      #section-{{ section.id }} .ImageHero .Button:hover {
-        color: #ffffff;
-      }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-  {%- endif -%}
-</style>
+  }
+{%- endstyle -%}
+
+{%- paginate blog.articles by 6 -%}
+  <div class="main-blog page-width section-{{ section.id }}-padding">
+    <h1 class="title--primary">{{ blog.title | escape }}</h1>
+
+    <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
+      {%- for article in blog.articles -%}
+        <div class="blog-articles__article article">
+          {%- render 'article-card',
+            article: article,
+            media_height: section.settings.image_height,
+            media_aspect_ratio: article.image.aspect_ratio,
+            show_image: section.settings.show_image,
+            show_date: section.settings.show_date,
+            show_author: section.settings.show_author,
+            show_excerpt: true 
+          -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  </div>
+{%- endpaginate -%}
 
 {% schema %}
 {
-  "name": "Blog page",
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
   "settings": [
     {
-      "type": "checkbox",
-      "id": "show_rss",
-      "label": "Show RSS",
-      "default": false
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:sections.main-blog.settings.layout.options__1.label"
+        },
+        {
+          "value": "collage",
+          "label": "t:sections.main-blog.settings.layout.options__2.label"
+        }
+      ],
+      "default": "collage",
+      "label": "t:sections.main-blog.settings.layout.label",
+      "info": "t:sections.main-blog.settings.layout.info"
     },
     {
       "type": "checkbox",
-      "id": "show_tags",
-      "label": "Show filters",
-      "default": true
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
     },
     {
       "type": "checkbox",
-      "id": "show_featured_article",
-      "label": "Show featured article",
-      "default": true
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
     },
     {
       "type": "checkbox",
-      "id": "show_category",
-      "label": "Show article category",
-      "info": "The first article's tag is used as the main category.",
-      "default": false
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
     }
   ]
 }

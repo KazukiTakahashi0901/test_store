@@ -1,56 +1,58 @@
-<div class="Segment">
-  <div class="Segment__Title Segment__Title--flexed">
-    {%- if search.types contains 'product' -%}
-      <span class="Heading Text--subdued u-h7">{{ 'search.general.results_count' | t: count: search.results_count }}</span>
-    {%- else -%}
-      {%- if search.types contains 'article' and search.types contains 'page' -%}
-        <span class="Heading Text--subdued u-h7">{{ 'search.general.pages_and_articles' | t }}</span>
-        {%- elsif search.types contains 'article' -%}
-        <span class="Heading Text--subdued u-h7">{{ 'search.general.articles' | t }}</span>
-      {%- else -%}
-        <span class="Heading Text--subdued u-h7">{{ 'search.general.pages' | t }}</span>
-      {%- endif -%}
+{%- if predictive_search.performed -%}
+  <div id="predictive-search-results">
+    {%- if predictive_search.resources.products.size > 0 -%} 
+      <h2 id="predictive-search-products" class="predictive-search__heading text-body caption-with-letter-spacing">
+        {{ 'templates.search.products' | t }}
+
+        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+        </svg>
+      </h2>
     {%- endif -%}
-
-    {%- if search.results_count > 0 -%}
-      <a class="Heading Link Link--secondary u-h7" href="{{ routes.search_url }}?q={{ search.terms }}&type={{ search.types | join: ',' }}">{{ 'search.general.view_all' | t }}</a>
-    {%- endif -%}
-  </div>
-
-  <div class="Segment__Content">
-    {%- if search.results_count == 0 -%}
-      <p>{{ 'search.general.no_results' | t }}</p>
-    {%- else -%}
-      {%- if search.types contains 'product' -%}
-        {%- if settings.search_mode == 'product' -%}
-          {%- assign results_count = 4 -%}
-        {%- else -%}
-          {%- assign results_count = 3 -%}
-        {%- endif -%}
-
-        <div class="Grid Grid--xl">
-          {%- for result in search.results limit: results_count -%}
-            {%- comment -%}The inline onclick is a bit hacky, but it's easier on mobile to have the full line clickable{%- endcomment -%}
-            <div class="Grid__Cell 1/{{ results_count }}--tablet-and-up" onclick="window.location.href = '{{ result.url }}'">
-              {%- render 'product-item', product: result, show_labels: false, show_product_info: true, show_vendor: false -%}
+    <ul id="predictive-search-results-list" class="predictive-search__results-list list-unstyled" role="listbox" aria-labelledby="predictive-search-products">
+      {%- for product in predictive_search.resources.products -%}
+        <li id="predictive-search-option-{{ forloop.index }}" class="predictive-search__list-item" role="option" aria-selected="false">
+          <a href="{{ product.url }}" class="predictive-search__item predictive-search__item--link link link--text" tabindex="-1">
+            {%- if product.featured_media != blank -%}
+              <img class="predictive-search__image"
+                src="{{ product.featured_media | image_url: width: 150 }}"
+                alt="{{ product.featured_media.alt }}"
+                width="50"
+                height="{{ 50 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
+              >
+            {%- endif -%}
+            <div class="predictive-search__item-content{% unless settings.predictive_search_show_vendor or settings.predictive_search_show_price %} predictive-search__item-content--centered{% endunless %}">
+              {%- if settings.predictive_search_show_vendor -%} 
+                <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span><div class="predictive-search__item-vendor caption-with-letter-spacing">{{ product.vendor }}</div>
+              {%- endif -%}
+              <h3 class="predictive-search__item-heading h5">{{ product.title }}</h3> 
+              {%- if settings.predictive_search_show_price -%}
+                {% render 'price', product: product, use_variant: true, show_badges: false %} 
+              {%- endif -%}
             </div>
-          {%- endfor -%}
-        </div>
-      {%- else -%}
-        <ul class="Linklist">
-          {%- for result in search.results limit: 6 -%}
-            <li class="Linklist__Item">
-              <a href="{{ result.url }}" class="Link Link--secondary">{{ result.title }}</a>
-            </li>
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
-    {%- endif -%}
-  </div>
-</div>
+          </a>
+        </li>
+      {%- endfor -%}
+      <li id="predictive-search-option-search-keywords" class="predictive-search__list-item" role="option">
+        <button class="predictive-search__item predictive-search__item--term link link--text h5 animate-arrow" tabindex="-1">
+          {{ 'templates.search.search_for' | t: terms: predictive_search.terms }}
+          {% render 'icon-arrow' %}
+        </button>
+      </li> 
+    </ul>
 
-{% schema %}
-{
-  "name": "Predictive search"
-}
-{% endschema %}
+    <div class="predictive-search__loading-state" aria-hidden="true">
+      <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <span class="hidden" data-predictive-search-live-region-count-value>
+    {%- if search.results_count == 0 -%}
+      {{ 'templates.search.no_results' | t: terms: predictive_search.terms }}
+    {%- else -%}
+      {{ 'templates.search.results_with_count' | t: terms: predictive_search.terms, count: predictive_search.resources.products.size }}
+    {%- endif -%}
+  </span>
+{%- endif -%}

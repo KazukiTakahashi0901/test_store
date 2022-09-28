@@ -1,308 +1,212 @@
 {
   "sections": {
-    "slideshow": {
-      "type": "slideshow",
+    "image_banner": {
+      "type": "image-banner",
       "blocks": {
-        "slide-0": {
-          "type": "image",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "image": "shopify:\/\/shop_images\/EC_TOP_MV_takibihamp_PC.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/EC_TOP_MV_takibihamp_SP.jpg",
-            "apply_overlay": true,
-            "content_position": "bottomLeft",
-            "subheading": "火の粉を気にせず、焚き火と向きあえる「takibi hamp」シリーズが新発売",
-            "title": "自然と一体となり、火とともに生きる",
-            "button_1_text": "詳しく見る",
-            "button_1_link": "shopify:\/\/pages\/takibi-hamp",
-            "button_2_text": "",
-            "button_2_link": ""
+            "heading": "高橋 和希",
+            "heading_size": "h0"
           }
         },
-        "af79a552-e8aa-47a3-9d3c-59fa4e82101a": {
-          "type": "image",
+        "text": {
+          "type": "text",
           "settings": {
-            "image": "shopify:\/\/shop_images\/EC_TOP_MV_takibihamp_cp_PC.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/EC_TOP_MV_takibihamp_cp_SP.jpg",
-            "apply_overlay": true,
-            "content_position": "bottomLeft",
-            "subheading": "7\/18(月)まで takibi hamp発売記念キャンペーン実施中",
-            "title": "#タキビトアソビト キャンペーン",
-            "button_1_text": "キャンペーン詳細を見る",
-            "button_1_link": "shopify:\/\/pages\/takibi-hamp-cp",
-            "button_2_text": "",
-            "button_2_link": ""
+            "text": "【初心者向け】shopifyストア構築を1.5時間でマスターしよう",
+            "text_style": "body"
           }
         },
-        "cbe3bdbf-c672-4961-8fd0-96b955030f5e": {
-          "type": "image",
+        "button": {
+          "type": "buttons",
           "settings": {
-            "image": "shopify:\/\/shop_images\/EC_TOP_MV_asobito-kodawari_PC_b4824194-a1ee-4443-9d1e-341e1176ba93.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/EC_TOP_MV_asobito-kodawari_SP_566fd772-5aa6-4dac-8788-3d8d0a18a24c.jpg",
-            "apply_overlay": true,
-            "content_position": "bottomLeft",
-            "subheading": "「天然素材×難燃×撥水」を実現したウラ側を開発担当者が語ります",
-            "title": "takibi hampに込めた想い",
-            "button_1_text": "詳しく見る",
-            "button_1_link": "shopify:\/\/pages\/takibihampstory",
-            "button_2_text": "",
-            "button_2_link": ""
-          }
-        },
-        "275c93a9-aa8c-42c1-9c4c-7e2388d4892a": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/LC_main_PC.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/aonew_545_800.jpg",
-            "apply_overlay": true,
-            "content_position": "bottomLeft",
-            "subheading": "世界に先駆け、AO Coolersからランチクーラー＆パックアンドゴーが新登場",
-            "title": "コンパクトでも妥協しない保冷力",
-            "button_1_text": "詳しく見る",
-            "button_1_link": "shopify:\/\/pages\/aocoolers-lc-pag",
-            "button_2_text": "",
-            "button_2_link": ""
-          }
-        },
-        "slide-1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/EC_TOP_MV_AO-horeiryoku_PC_32e1ed88-0b61-4d26-8d9c-903e9a191536.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/ao_1c7cb248-da68-46ae-bf76-4a0459adc76d.jpg",
-            "apply_overlay": true,
-            "content_position": "bottomLeft",
-            "subheading": "AO coolersの保冷力を活かすコツとは？",
-            "title": "保冷力持続のコツ×驚異の保冷力",
-            "button_1_text": "保冷力持続のコツを見る",
-            "button_1_link": "shopify:\/\/pages\/coolerbagtips",
-            "button_2_text": "",
-            "button_2_link": ""
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "slide-0",
-        "af79a552-e8aa-47a3-9d3c-59fa4e82101a",
-        "cbe3bdbf-c672-4961-8fd0-96b955030f5e",
-        "275c93a9-aa8c-42c1-9c4c-7e2388d4892a",
-        "slide-1"
+        "heading",
+        "text",
+        "button"
       ],
       "settings": {
-        "show_fullscreen": false,
-        "show_arrow": false,
-        "autoplay": true,
-        "cycle_speed": 5,
-        "text_color": "#ffffff",
-        "button_color": "#363636",
-        "button_background": "#ffffff"
+        "image": "shopify:\/\/shop_images\/business-pug-working-on-laptop.jpg",
+        "image_overlay_opacity": 20,
+        "image_height": "large",
+        "adapt_height_first_image": false,
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     },
-    "featured-collections": {
-      "type": "featured-collections",
+    "rich_text": {
+      "type": "rich-text",
       "blocks": {
-        "featured-collection-0": {
-          "type": "collection",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "collection": "すべて",
-            "title": "",
-            "grid_items_count": 4,
-            "button_text": "一覧を見る"
+            "heading": "フロアマット100枚",
+            "heading_size": "h1"
           }
         },
-        "ac675574-e12b-4f6c-a5c5-fd749d2fc66e": {
-          "type": "collection",
+        "text": {
+          "type": "text",
           "settings": {
-            "collection": "収納バッグ",
-            "title": "",
-            "grid_items_count": 4,
-            "button_text": "一覧を見る"
-          }
-        },
-        "5b1df6b9-680e-4b01-9aa0-d76753e9c638": {
-          "type": "collection",
-          "settings": {
-            "collection": "クーラーボックス",
-            "title": "",
-            "grid_items_count": 4,
-            "button_text": "一覧を見る"
-          }
-        },
-        "ee76d05f-b24d-4432-b494-c242637c673e": {
-          "type": "collection",
-          "settings": {
-            "collection": "寝袋",
-            "title": "",
-            "grid_items_count": 4,
-            "button_text": "一覧を見る"
-          }
-        },
-        "a8bc3538-317a-45c4-93cc-f5943513fbeb": {
-          "type": "collection",
-          "settings": {
-            "collection": "テント-防水シート",
-            "title": "",
-            "grid_items_count": 4,
-            "button_text": "一覧を見る"
-          }
-        },
-        "ca218c28-0ba0-4de1-85c2-5e2605871c42": {
-          "type": "collection",
-          "settings": {
-            "collection": "ハンモック",
-            "title": "",
-            "grid_items_count": 4,
-            "button_text": "一覧を見る"
-          }
-        },
-        "59e3a9bc-913e-482c-ad47-4862959811f9": {
-          "type": "collection",
-          "settings": {
-            "collection": "衣料品",
-            "title": "アパレル",
-            "grid_items_count": 4,
-            "button_text": "一覧を見る"
-          }
-        },
-        "72d50e2a-afd5-45b1-9aa2-84d994822a27": {
-          "type": "collection",
-          "settings": {
-            "collection": "その他",
-            "title": "",
-            "grid_items_count": 4,
-            "button_text": "一覧を見る"
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
           }
         }
       },
       "block_order": [
-        "featured-collection-0",
-        "ac675574-e12b-4f6c-a5c5-fd749d2fc66e",
-        "5b1df6b9-680e-4b01-9aa0-d76753e9c638",
-        "ee76d05f-b24d-4432-b494-c242637c673e",
-        "a8bc3538-317a-45c4-93cc-f5943513fbeb",
-        "ca218c28-0ba0-4de1-85c2-5e2605871c42",
-        "59e3a9bc-913e-482c-ad47-4862959811f9",
-        "72d50e2a-afd5-45b1-9aa2-84d994822a27"
+        "heading",
+        "text"
       ],
       "settings": {
-        "title": "PICK UP",
-        "layout_mode": "grid",
-        "show_product_info": true,
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "show_view_all": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
         "show_vendor": false,
-        "show_color_swatch": false,
-        "grid_mobile_items_per_row": "2",
-        "grid_desktop_items_per_row": 4
+        "show_rating": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 28,
+        "padding_bottom": 36
       }
     },
-    "collection-list": {
-      "type": "collection-list",
+    "collage": {
+      "type": "collage",
       "blocks": {
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": "asobito",
-            "image": "shopify:\/\/shop_images\/EC_TOP_BRANDS_asobito.jpg",
-            "image_alignment": "center center",
-            "content_position": "bottomLeft",
-            "subheading": "長く使える愛着の湧く素材、妥協しないクオリティ、シンプルなデザイン",
-            "title": "asobito",
-            "button_text": "View products",
-            "button_link": "",
-            "apply_overlay": true
+            "collection": ""
           }
         },
-        "collection-2": {
-          "type": "collection",
+        "product": {
+          "type": "product",
           "settings": {
-            "collection": "ao-coolers",
-            "image": "shopify:\/\/shop_images\/EC_TOP_BRANDS_AOcoolers_d15d82f1-ff0f-41d9-b882-d8c6ab73a859.jpg",
-            "image_alignment": "center center",
-            "content_position": "bottomLeft",
-            "subheading": "驚異の保冷力を誇る高性能クーラーバッグ",
-            "title": "AO Coolers",
-            "button_text": "View products",
-            "button_link": "",
-            "apply_overlay": true
+            "product": "",
+            "second_image": false
           }
         },
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": "snugpak",
-            "image": "shopify:\/\/shop_images\/EC_TOP_BRANDS_Snugpak_2cb0f823-e0fa-4554-96cd-f9c455ce851d.jpg",
-            "image_alignment": "center center",
-            "content_position": "bottomLeft",
-            "subheading": "英国女王が認めた確かな品質を備える機能美の数々",
-            "title": "Snugpak",
-            "button_text": "View products",
-            "button_link": "",
-            "apply_overlay": true
-          }
-        },
-        "8eac6e68-6edf-4c69-a8d2-80b5a038a3bb": {
-          "type": "collection",
-          "settings": {
-            "collection": "kammok",
-            "image": "shopify:\/\/shop_images\/EC_TOP_BRANDS_KAMMOK.jpg",
-            "image_alignment": "center center",
-            "content_position": "bottomLeft",
-            "subheading": "冒険したくなるような機能美と品質を兼ね揃えたハンモック",
-            "title": "KAMMOK",
-            "button_text": "View products",
-            "button_link": "",
-            "apply_overlay": true
+            "collection": ""
           }
         }
       },
       "block_order": [
         "collection-0",
-        "collection-2",
-        "collection-1",
-        "8eac6e68-6edf-4c69-a8d2-80b5a038a3bb"
+        "product",
+        "collection-1"
       ],
       "settings": {
-        "title": "BRANDS",
-        "image_size": "normal",
-        "add_spacing": true,
-        "expand_collection": false,
-        "stack_on_mobile": true,
-        "text_color": "#ffffff",
-        "button_color": "#363636"
+        "heading": "Multimedia collage",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "165329936773491189": {
-      "type": "feature",
+    "video": {
+      "type": "video",
       "settings": {
-        "feature_title": "FEATURE",
-        "feature_page_first": "takibi-hamp",
-        "feature_image_first": "shopify:\/\/shop_images\/EC_TOP_FEATURE_ab_takibi-hamp.jpg",
-        "feature_page_second": "takibi-hamp-cp",
-        "feature_image_second": "shopify:\/\/shop_images\/EC_TOP_FEATURE_takibitoasobitoCP.jpg",
-        "feature_page_third": "coolerbagtips",
-        "feature_image_third": "shopify:\/\/shop_images\/EC_TOP_FEATURE_AO-horeiryoku_05750d3e-2bf8-4c60-97cc-6d6f43554843.jpg"
+        "heading": "",
+        "heading_size": "h1",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "16535504715a45a6c2": {
-      "type": "custom-html",
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
       "settings": {
-        "subheading": "",
         "title": "",
-        "html": "<div class=\"vsm-tile\">\n<div class=\"ecbn-selection-widget\" data-type=\"selection-tile\" data-selection=\"bigwing_ALL\" data-userid=\"e6020301-2007-486a-9596-7f48502eacd9\" style=\"display:none;\"><\/div>\n<script type=\"text\/javascript\" src=\"https:\/\/www.visumo.jp\/MediaManagement\/WebApi\/ecbn-selection-widget.js\" defer><\/script>\n<\/div>"
-      }
-    },
-    "16527506971c2a7d6f": {
-      "type": "news",
-      "settings": {
-        "news_title": "NEWS",
-        "post_limit": 4,
-        "news_list": "ニュース"
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
-    "slideshow",
-    "featured-collections",
-    "collection-list",
-    "165329936773491189",
-    "16535504715a45a6c2",
-    "16527506971c2a7d6f"
+    "image_banner",
+    "rich_text",
+    "featured_collection",
+    "collage",
+    "video",
+    "multicolumn"
   ]
 }
