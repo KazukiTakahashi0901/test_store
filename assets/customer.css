@@ -745,3 +745,229 @@ li[data-address] > h2 {
 .addresses form > div:nth-of-type(7) + div[id] {
   margin-top: 1.5rem;
 }
+.customer.register {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}
+
+.flat-input {
+  background-color: #fff !important;
+  border: 1px solid rgb(169, 169, 169) !important;
+  line-height: 24px !important;
+  font-size: 14px !important;
+  border-radius: 5px !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+.globo-form-input .flat-input[name=select] {
+  background-image: url("register-select-arrow.svg") !important;
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+}
+.globo-form-input .flat-input[name=country] {
+  background-image: url("register-select-arrow.svg") !important;
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+}
+
+.globo-form-input .flat-input[name=datetime] {
+  background-image: url('data:image/svg+xml,%3Csvg width="20" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath fill-rule="evenodd" clip-rule="evenodd" d="M17.3 8c.677 0 1.224.548 1.224 1.224v3.426h12.728V9.224a1.224 1.224 0 012.447 0v3.426h5.63a2.937 2.937 0 012.937 2.937v24.476A2.937 2.937 0 0139.329 43H10.937A2.937 2.937 0 018 40.063V15.587a2.937 2.937 0 012.937-2.937h5.14V9.224c0-.676.548-1.224 1.224-1.224zm-6.363 7.098H39.33c.27 0 .49.22.49.49v6.608H10.447v-6.609c0-.27.219-.49.49-.49zm-.49 9.545v15.42c0 .27.22.49.49.49H39.33c.27 0 .49-.22.49-.49v-15.42H10.447z"/%3E%3C/svg%3E') !important;
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+}
+
+.flat-button {
+  font-size: 14px !important;
+  padding: 12px 30px !important;
+  line-height: 26px !important;
+  border-radius: 5px !important;
+}
+
+.globo-form-control > hr {
+  margin: 15px 0 !important;
+}
+
+.globo-form-control > .flex-wrap {
+  row-gap: 6px !important;
+}
+
+.register__select__arrow {
+  background-image: url(../assets/register-select-arrow.svg);
+}
+.register__container {
+  height: 1062px !important;
+  position: relative;
+}
+@media screen and (max-width: 1279px) {
+  .register__container {
+    display: block;
+    height: auto !important;
+  }
+}
+.register__icon {
+  position: relative;
+}
+.register__arrow {
+  position: absolute;
+  transform: rotate(90deg);
+  right: 5px;
+  top: 1px;
+}
+.register__image {
+  width: 50%;
+  object-fit: cover;
+  object-position: top right;
+}
+@media screen and (max-width: 1279px) {
+  .register__image {
+    display: none;
+  }
+}
+.register__image__sp {
+  display: none;
+}
+@media screen and (max-width: 1279px) {
+  .register__image__sp {
+    display: block;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .register__image__sp {
+    display: none;
+  }
+}
+@media screen and (min-width: 1022px) {
+  .register__image__tb {
+    display: none;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .register__image__tb {
+    display: block;
+    width: 100%;
+  }
+}
+.register__text__container {
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  left: 5%;
+}
+@media screen and (max-width: 1279px) {
+  .register__text__container {
+    top: 60px;
+    left: 5%;
+  }
+}
+.register__title {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 4.5rem;
+  line-height: 4.8rem;
+}
+.register__back {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.42857143;
+  font-size: 1.4rem;
+  margin-bottom: 40px;
+  margin-left: 20px;
+}
+
+.globo-form-app {
+  margin: auto !important;
+  box-shadow: none !important;
+}
+@media screen and (max-width: 1023px) and (max-width: 766px) {
+  .globo-form-app {
+    padding: 30px !important;
+  }
+}
+@media screen and (max-width: 766px) {
+  .globo-form-app {
+    max-width: none !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .globo-form-control.layout-2-column {
+    width: 50% !important;
+  }
+}
+
+.globo-formbuilder {
+  width: 100%;
+}
+
+.description {
+  color: #707070 !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  line-height: 1.42857143 !important;
+  font-size: 1.4rem !important;
+}
+
+.checkbox-label {
+  position: relative;
+}
+.checkbox-label > a {
+  color: #000 !important;
+  font-size: 14px;
+}
+
+.checkbox-input:checked ~ .checkbox-label::after {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 2px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") !important;
+}
+.checkbox-input ~ .checkbox-label::after {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+.globo-heading{
+  font-variant-numeric: normal !important;
+  letter-spacing: normal !important;
+  text-transform: initial !important;
+  font-family: salomon-sans,salomon-fallback,sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important;
+  font-size: 2.2rem !important;
+  line-height: 2.8rem !important;
+  margin: 4rem 0 !important;
+}
+.description .globo-description{
+  margin: 0;
+  font-weight: 400;
+  font-variant-numeric: normal;
+  letter-spacing: normal;
+  text-transform: initial;
+  font-family: new-hero,salomon-fallback,sans-serif;
+  letter-spacing: .01em;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+.globo-form-app .header .description{
+  margin: 0 !important;
+  font-weight: 400 !important;
+  font-variant-numeric: normal !important;
+  letter-spacing: normal !important;
+  text-transform: initial !important;
+  font-family: new-hero,salomon-fallback,sans-serif !important;
+  letter-spacing: .01em !important;
+  font-size: 1.4rem !important;
+  line-height: 2.4rem !important;
+}
+.globo-form-app .header{
+  padding-bottom: 30px !important;
+}
